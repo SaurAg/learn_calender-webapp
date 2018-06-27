@@ -1,0 +1,13 @@
+{% if event_list %}
+ 
+    <h1>List of Events </h1>
+<ul>
+    {% for evt in event_list %}
+ 
+    <li> <a href="{% url 'evnt_det:detail' evt.id %}">{{ evt.name }}</a> </li>
+    {% endfor %}
+</ul>
+{#  In case  no event exists.  #}
+{% else %}
+<h3> No event found.</h3>
+{% endif %}
