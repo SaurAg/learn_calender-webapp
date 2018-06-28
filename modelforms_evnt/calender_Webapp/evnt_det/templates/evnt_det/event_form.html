@@ -1,0 +1,10 @@
+<h3>Add a New Event</h3>
+ 
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% include 'evnt_det/form-template.html' %}
+    <input type="submit" value="Submit">
+</form>

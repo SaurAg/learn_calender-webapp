@@ -1,0 +1,13 @@
+<h1>Event Name:{{ event.event_name }}</h1>
+<h2>Description:{{ event.event_description }}</h2>
+<h3>Venue:{{ event.event_venue }}</h3>
+<h3>Start Time:{{ event.event_starttime }}</h3>
+<h3>End Time:{{ event.event_endtime }}</h3>
+<form action="{% url 'evnt_det:event-delete' event.id %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
+<form action="{% url 'evnt_det:event-update' event.id  %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit">Update</button>
+</form>

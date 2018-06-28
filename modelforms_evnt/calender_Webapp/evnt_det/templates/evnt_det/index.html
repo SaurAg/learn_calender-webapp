@@ -1,0 +1,13 @@
+{% if event_list %}
+    <ul>
+    {% for evt in event_list %}
+    <li><a href="{% url 'evnt_det:detail' evt.id %}">{{ evt.event_name }} to be held on {{ evt.event_starttime }}</a></li>
+    {% endfor %}
+    </ul>
+ {% else %}
+    <h1>No event entries found on the database.</h1>
+{% endif %}
+    <form action="{% url 'evnt_det:event-entry'  %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit">Make an new Event entry here</button>
+    </form>
